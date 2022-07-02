@@ -1,6 +1,8 @@
 #!/bin/bash
 
 #Count the number of sequences in DNA.fa 
+grep -c "^>" DNA.fa
+
 wget https://raw.githubusercontent.com/HackBio-Internship/wale-home-tasks/main/DNA.fa
 cat DNA.fa
 
