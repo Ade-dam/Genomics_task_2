@@ -3,13 +3,17 @@
 #Count the number of sequences in DNA.fa 
 grep -c "^>" DNA.fa
 
+#download dataset
 wget https://raw.githubusercontent.com/HackBio-Internship/wale-home-tasks/main/DNA.fa
 cat DNA.fa
 
 #Write a one-line command in Bash to get the total A, T, G & C counts for all the sequences in the file above
 echo -n "TGGGTTGATTCCACACCCCCGCCCGGCACCCGCGTCCGCGCCGTGGCCATCTACAAGCAGTCACAGCACATGACGGAGGTTGTGAGGCGCTGCCCCCACCATGAGCGCTGCTCAGATAGCGAT" | sed 's/\(.\)/\1\n/g'| sort | uniq -c
 
- #Set up a conda (anaconda, miniconda or mini forge) environment on your terminal.
+#OR
+grep -Eo 'A|T|G|C' DNA.fa | sort | uniq -c | awk '{print $2": "$1}'
+
+#Set up a conda (anaconda, miniconda or mini forge) environment on your terminal.
 wget https://repo.anaconda.com/miniconda/Miniconda3-py39_4.12.0-Linux-x86_64.sh
 chmod +x Miniconda3-py39_4.12.0-Linux-x86_64.sh
 ./Miniconda3-py39_4.12.0-Linux-x86_64.sh
